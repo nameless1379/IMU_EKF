@@ -7,7 +7,7 @@ end
 
 P_psc = 65536;
 
-accl_var = 1.0/9.81;
+accl_var = sqrt1.0/9.81;
 accl = accl/9.81;
 
 q = state(1:4);

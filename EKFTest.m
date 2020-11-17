@@ -1,6 +1,6 @@
 clear
 dt = 0.001;
-t_total = 1200;
+t_total = 600;
 
 test_len = t_total/dt;
 
@@ -47,7 +47,7 @@ for i = 2: length(real_state)
     %my_euler1(:,i) = QuatToEul(my_state1(1:4, i)) * 180 / pi; 
     
     if(mod(i , 5000) == 0)
-        P0
+        P0 / 65536
         %P1
     end
 end
