@@ -73,6 +73,13 @@ distMatrix = diag([daVar daVar daVar dabVar dabVar dabVar]);
 Q = G*distMatrix*transpose(G);
 
 PP = F*P*transpose(F) - P;
+
+for rowIndex = 2:nStates
+    for colIndex = 1:rowIndex-1
+        PP(rowIndex, colIndex) = 0;
+    end
+end
+
 %[PP,SPP]=OptimiseAlgebra(PP,'SPP');
 save('StateAndCovariancePrediction.mat');
 clear all;

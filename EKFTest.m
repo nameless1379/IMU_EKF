@@ -1,12 +1,12 @@
 clear
 dt = 0.001;
-t_total = 600;
+t_total = 700;
 
 test_len = t_total/dt;
 
 real_state = zeros(7,test_len);
 real_euler = zeros(3,test_len);
-real_state(:,1) = [1;0;0;0;0.005;-0.002;0.002];
+real_state(:,1) = [EulToQuat([0.1,0,0]);0.002;-0.002;0.002];
 
 my_state0 = zeros(7,test_len);
 my_state0(:,1) = [1;0;0;0;0;0;0];
@@ -27,7 +27,7 @@ clf;
 
 input_Ax = 2;
 input_fx = 1;
-input_Ay = 0.5;
+input_Ay = 1;
 input_fy = 2;
 
 for i = 2: length(real_state)

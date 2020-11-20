@@ -10,7 +10,6 @@ end
 gyro_var      = 1e-7;
 gyro_bias_var = 1e-5;
 
-
 q = state(1:4);
 dAngTruth   = rotation - [state(5);state(6);0];
 
@@ -22,7 +21,7 @@ deltaQuat = [1;0.5*dAngTruth(1)*dt;0.5*dAngTruth(2)*dt;0.5*dAngTruth(3)*dt;];
 quatNew = QuatMult(q,deltaQuat);
 state(1:4) = quatNew;
 
-if(mod(i,20) == 0)
+if(mod(i,20) == 1)
     state(1:4) = state(1:4)/norm(state(1:4));
     F = [               1, -0.5*avg_d_angle(1), -0.5*avg_d_angle(2), -0.5*avg_d_angle(3),  (dT*q(2))/2,  (dT*q(3))/2;
        0.5*avg_d_angle(1),                   1,  0.5*avg_d_angle(3), -0.5*avg_d_angle(2), -(dT*q(1))/2,  (dT*q(4))/2;

@@ -1,6 +1,6 @@
 function [state, P] = EKFTestUpdateAccl1(state, P, accl)
 
-accl_var = 1.0/9.81;
+accl_var = 0.5/9.81;
 accl = accl/9.81;
 
 q = state(1:4);

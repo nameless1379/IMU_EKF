@@ -27,9 +27,12 @@ clearvars filename delimiter formatSpec fileID dataArray ans;
 
 %% replace brackets and commas
 for lineIndex = 1:length(SymbolicOutput)
+    SymbolicOutput(lineIndex) = regexprep(SymbolicOutput(lineIndex), '][0]', ']');
     SymbolicOutput(lineIndex) = regexprep(SymbolicOutput(lineIndex), '_l_', '(');
     SymbolicOutput(lineIndex) = regexprep(SymbolicOutput(lineIndex), '_c_', ',');
     SymbolicOutput(lineIndex) = regexprep(SymbolicOutput(lineIndex), '_r_', ')');
+    SymbolicOutput(lineIndex) = regexprep(SymbolicOutput(lineIndex), '_L_', '(');
+    SymbolicOutput(lineIndex) = regexprep(SymbolicOutput(lineIndex), '_R_', ')');
 end
 
 %% Convert indexing and replace brackets
@@ -76,7 +79,7 @@ end
 %% Change covariance matrix variable name to P
 for lineIndex = 1:length(SymbolicOutput)
     strIn = char(SymbolicOutput(lineIndex));
-    strIn = regexprep(strIn,'OP\[','P[');
+    strIn = regexprep(strIn,'OP\[','(*P)[');
     SymbolicOutput(lineIndex) = cellstr(strIn);
 end
 

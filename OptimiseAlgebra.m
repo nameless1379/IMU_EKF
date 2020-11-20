@@ -12,8 +12,8 @@ index = 0;
 f_complete = 0;
 while f_complete==0
     index = index + 1;
-    %SubExpIn = [SubExpName,'(',num2str(index),')'];
-    SubExpIn = [SubExpName, num2str(index)];
+    SubExpIn = [SubExpName,'_L_',num2str(index),'_R_'];
+    %SubExpIn = [SubExpName, num2str(index)];
     SubExpInStore{index} = SubExpIn;
     [SymExpOut,SubExpOut]=subexpr(SymExpIn,SubExpIn);
         for k = 1:index
