@@ -1,6 +1,6 @@
 clear
 dt = 0.001;
-t_total = 600;
+t_total = 1000;
 
 test_len = t_total/dt;
 
@@ -25,9 +25,9 @@ P1     = zeros(7,7);
 figure(1);
 clf;
 
-input_Ax = 2;
+input_Ax = 0;
 input_fx = 1;
-input_Ay = 0.5;
+input_Ay = 0;
 input_fy = 2;
 
 for i = 2: length(real_state)
